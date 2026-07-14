@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Assistant Glass Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+    </div>
+    
+    <div class="dashboard">
+        <header>
+            <div class="greeting">
+                <h1>Good Evening, Zedan</h1>
+                <p id="datetime"></p>
+            </div>
+            <div class="weather">
+                <span class="temp">24°C</span>
+                <span class="desc">Partly Cloudy</span>
+            </div>
+        </header>
+
+        <div class="cards">
+            <!-- Card 1 -->
+            <div class="glass-card active" onclick="toggleCard(this)">
+                <div class="icon">💡</div>
+                <h3>Living Room</h3>
+                <p>All Lights On</p>
+                <div class="toggle-indicator"></div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-card" onclick="toggleCard(this)">
+                <div class="icon">❄️</div>
+                <h3>AC (Bedroom)</h3>
+                <p>Off</p>
+                <div class="toggle-indicator"></div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card active" onclick="toggleCard(this)">
+                <div class="icon">📺</div>
+                <h3>Samsung TV</h3>
+                <p>Playing Netflix</p>
+                <div class="toggle-indicator"></div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="glass-card" onclick="toggleCard(this)">
+                <div class="icon">🔒</div>
+                <h3>Front Door</h3>
+                <p>Locked</p>
+                <div class="toggle-indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
