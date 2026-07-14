@@ -1,0 +1,173 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --active-color: #4ade80;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animated Background */
+.background {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.circle1 {
+    width: 400px; height: 400px;
+    background: #3b82f6;
+    top: -100px; left: -100px;
+    animation: float1 10s infinite alternate;
+}
+
+.circle2 {
+    width: 300px; height: 300px;
+    background: #8b5cf6;
+    bottom: -50px; right: -50px;
+    animation: float2 12s infinite alternate;
+}
+
+.circle3 {
+    width: 250px; height: 250px;
+    background: #ec4899;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: float3 15s infinite alternate;
+}
+
+@keyframes float1 { 100% { transform: translate(100px, 50px); } }
+@keyframes float2 { 100% { transform: translate(-50px, -100px); } }
+@keyframes float3 { 100% { transform: translate(-50%, -50%) scale(1.5); } }
+
+/* Dashboard UI */
+.dashboard {
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.weather {
+    text-align: right;
+}
+
+.weather .temp {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.weather .desc {
+    color: var(--text-secondary);
+}
+
+/* Cards Grid */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.glass-card .icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.glass-card h3 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.glass-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.toggle-indicator {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #64748b;
+    transition: background 0.3s;
+}
+
+.glass-card.active .toggle-indicator {
+    background: var(--active-color);
+    box-shadow: 0 0 10px var(--active-color);
+}
+
+.glass-card.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.glass-card.active p {
+    color: #fff;
+}
